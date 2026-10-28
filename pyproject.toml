@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "serialscope"
+version = "0.1.0"
+description = "串口数据采集上位机：流式帧解码、CRC 校验、丢帧统计与实时曲线"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "李石" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Human Machine Interfaces",
+]
+
+[project.optional-dependencies]
+serial = ["pyserial>=3.5"]
+dev = ["ruff>=0.6"]
+
+[project.scripts]
+serialscope = "serialscope.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["serialscope*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
